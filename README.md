@@ -1,6 +1,6 @@
 ## Stock Viewer 
 
-Implemented using Next.js, Recharts, React Context, shadcn/ui and tailwind. Responsive design is included.
+Implemented using Next.js, Recharts, Route Handler (nextjs feature), Typescript, React Context, shadcn/ui and tailwind. Responsive design is included.
 
 Demo: https://stock-viewer-assignment.vercel.app/ 
 
