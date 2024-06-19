@@ -5,3 +5,8 @@ export const SIX_MONTHS = "6M";
 export const YTD = "YTD";
 export const ONE_YEAR = "1Y";
 export const FIVE_YEARS = "5Y";
+
+
+export const READY = "READY"
+export const LOADING = "LOADING"
+export const ERROR = "ERROR"

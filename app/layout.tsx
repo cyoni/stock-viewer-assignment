@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import StockHeader from "@/components/StockHeader";
 import MenuTabs from "@/components/MenuTabs";
+import StockCache from "@/Context/CacheContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,11 +20,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} `}>
+      <body className={`${inter.className}`}>
         <Header />
-
-
-        {children}
+        <StockCache>
+          <div className="max-w-screen-lg mx-auto">{children}</div>
+        </StockCache>
       </body>
     </html>
   );

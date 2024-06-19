@@ -1,13 +1,16 @@
 import MenuTabs from "@/components/MenuTabs";
-import StockChart from "@/components/StockChart";
 import StockHeader from "@/components/StockHeader";
+import React from "react";
 
-export default async function Home() {
+function page() {
   return (
-    <main>
+    <div>
       <StockHeader />
       <MenuTabs />
-      <StockChart />
-    </main>
+
+      <section>TBD!</section>
+    </div>
   );
 }
+
+export default page;

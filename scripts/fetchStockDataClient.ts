@@ -1,11 +1,16 @@
 import { ONE_DAY } from "@/consts/general.consts";
 
-export async function fetchStockDataClient({
-  tkr = "AAPL.XNAS",
-  time = ONE_DAY,
-}) {
+interface IProps {
+  ticker: string;
+  time: TimePeriod;
+}
+export async function fetchStockDataClient({ ticker, time = ONE_DAY }: IProps) {
   try {
-    const params = `tkr=${tkr}&time=${time}`;
+    if (!ticker || !time) {
+      throw new Error("Tcr or time are mandatory fields");
+    }
+
+    const params = `tkr=${ticker}&time=${time}`;
     const endpoint = `/api/stock-api?${params}`;
 
     const data = await fetch(endpoint, {
@@ -18,4 +23,5 @@ export async function fetchStockDataClient({
   } catch (error) {
     console.error("an error occurred");
   }
+  return null;
 }

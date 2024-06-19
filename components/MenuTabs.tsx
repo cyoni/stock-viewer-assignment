@@ -1,19 +1,31 @@
+"use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 function MenuTabs() {
-  return (
-    <div className="flex p-2 my-2">
-      <Link
-        className="bg-black text-white rounded-md px-2 p-1 text-sm"
-        href={"/"}
-      >
-        Overview
-      </Link>
+  const pathname = usePathname();
 
-      <Link className="rounded-md px-2 p-1 text-sm" href={"/historical-data"}>
-        Historical Data
-      </Link>
+  const menuItems = [
+    { title: "Overview", path: "/" },
+    { title: "Historical Data", path: "/historical-data" },
+  ];
+
+  return (
+    <div className="flex p-2 my-3 gap-2 border-b border-b-gray-200">
+      {menuItems.map((item) => (
+        <Link
+          key={item.path}
+          className={`rounded-md px-2 p-1 text-sm   ${
+            item.path === pathname
+              ? " bg-black text-white"
+              : "text-black hover:bg-gray-100 "
+          }`}
+          href={item.path}
+        >
+          {item.title}
+        </Link>
+      ))}
     </div>
   );
 }

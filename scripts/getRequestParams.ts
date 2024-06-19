@@ -9,7 +9,7 @@ import {
 } from "@/consts/general.consts";
 import moment from "moment";
 
-export function getRequestParams(time) {
+export function getRequestParams(time: TimePeriod) {
   const DEFAULT_FORMAT = "MM/DD/YYYY";
   const today = moment().format(DEFAULT_FORMAT);
   const endTime = `${today}%2023:59`;
@@ -19,7 +19,6 @@ export function getRequestParams(time) {
       return {
         startTime: today,
         endTime: `${today}%2023:59`,
-        period: 1,
       };
 
     case FIVE_DAYS:
@@ -44,8 +43,8 @@ export function getRequestParams(time) {
       return { startTime: year, endTime };
 
     case FIVE_YEARS:
-      const one_years = moment().subtract(1, "years").format(DEFAULT_FORMAT);
-      return { startTime: one_years, endTime };
+      const five_years = moment().subtract(5, "years").format(DEFAULT_FORMAT);
+      return { startTime: five_years, endTime };
 
     default:
       throw new Error(`couldn't find `, time);
