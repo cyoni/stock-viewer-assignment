@@ -18,6 +18,9 @@ function Chart({ data, ticker }: IProps) {
   const interval =
     Array.isArray(data) && data.length > 10 ? Math.floor(data.length / 10) : 0;
 
+  if (Array.isArray(data) && data.length === 0)
+    return <div>No data found for this day</div>;
+
   return (
     <ResponsiveContainer>
       <AreaChart width={800} height={250} data={data}>
@@ -27,7 +30,7 @@ function Chart({ data, ticker }: IProps) {
             <stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
           </linearGradient>
         </defs>
-        <XAxis dataKey="name" interval={interval} tickMargin={10}/>
+        <XAxis dataKey="name" interval={interval} tickMargin={10} />
         <YAxis
           type="number"
           domain={["dataMin", "dataMax"]}
