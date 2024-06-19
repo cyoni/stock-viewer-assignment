@@ -17,7 +17,7 @@ function StockHeader() {
           </div>
           <div className="text-3xl font-bold">214.16</div>
           <div className="text-green-600 ml-1 whitespace-nowrap">
-            +2.4 (-2.4%)
+            +2.4 (+1.4%)
           </div>
         </div>
         <div className="text-xs text-gray-400">
