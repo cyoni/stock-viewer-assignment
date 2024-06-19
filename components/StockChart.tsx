@@ -11,13 +11,8 @@ import { CacheContext } from "@/Context/CacheContext";
 function StockChart() {
   const [status, setStatus] = useState<Status>(LOADING);
 
-  const {
-    ticker,
-    stockCache,
-    updateStockCache,
-    selectedTime,
-    changeTime
-  } = useContext(CacheContext);
+  const { ticker, stockCache, updateStockCache, selectedTime, changeTime } =
+    useContext(CacheContext);
 
   const stockData: IStockDataView[] = stockCache[selectedTime];
 
@@ -59,10 +54,7 @@ function StockChart() {
           "There was an error fetching the stock data"
         )}
       </div>
-      <TimelineSelector
-        fetchStockData={fetchStockData}
-        selectedTime={selectedTime}
-      />
+      <TimelineSelector />
     </div>
   );
 }

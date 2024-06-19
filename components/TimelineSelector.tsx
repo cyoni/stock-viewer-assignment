@@ -1,23 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button } from "./ui/button";
 import {
   FIVE_DAYS,
   FIVE_YEARS,
   ONE_DAY,
+  ONE_MONTH,
   ONE_YEAR,
   SIX_MONTHS,
   YTD,
 } from "@/consts/general.consts";
+import { CacheContext } from "@/Context/CacheContext";
 
-interface IProps {
-  fetchStockData: Function;
-  selectedTime: string;
-}
+function TimelineSelector() {
+  const { selectedTime, changeTime } = useContext(CacheContext);
 
-function TimelineSelector({ fetchStockData, selectedTime }: IProps) {
   return (
     <div className="flex gap-2 mt-5 ml-2">
-      {[ONE_DAY, FIVE_DAYS, SIX_MONTHS, YTD, ONE_YEAR, FIVE_YEARS].map(
+      {[ONE_DAY, FIVE_DAYS, ONE_MONTH, SIX_MONTHS, YTD, ONE_YEAR, FIVE_YEARS].map(
         (time, i) => (
           <Button
             key={i}
@@ -25,7 +24,7 @@ function TimelineSelector({ fetchStockData, selectedTime }: IProps) {
             className={`px-2 rounded-md ${
               selectedTime === time ? "bg-black text-white" : ""
             } `}
-            onClick={() => fetchStockData(time)}
+            onClick={() => changeTime(time)}
           >
             {time}
           </Button>

@@ -10,3 +10,5 @@ export const FIVE_YEARS = "5Y";
 export const READY = "READY"
 export const LOADING = "LOADING"
 export const ERROR = "ERROR"
+
+export const defaultPeriod = 30

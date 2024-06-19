@@ -1,4 +1,4 @@
-import { ONE_DAY } from "@/consts/general.consts";
+import { ONE_DAY, defaultPeriod } from "@/consts/general.consts";
 import { getRequestParams } from "./getRequestParams";
 
 export async function fetchStockDataServer({
@@ -8,7 +8,7 @@ export async function fetchStockDataServer({
   const { startTime, endTime } = getRequestParams(time);
 
   const baseUrl = process.env.STOCK_BASE_URL as string;
-  const params = `en/stocks/chart/candles?Identifier=${tkr}&IdentifierType=Symbol&AdjustmentMethod=All&IncludeExtended=False&period=${30}&Precision=Minutes&StartTime=${startTime}&EndTime=${endTime}&_fields=ChartBars.StartDate,ChartBars.High,ChartBars.Low,ChartBars.StartTime,ChartBars.Open,ChartBars.Close,ChartBars.Volume`;
+  const params = `en/stocks/chart/candles?Identifier=${tkr}&IdentifierType=Symbol&AdjustmentMethod=All&IncludeExtended=False&period=${defaultPeriod}&Precision=Minutes&StartTime=${startTime}&EndTime=${endTime}&_fields=ChartBars.StartDate,ChartBars.High,ChartBars.Low,ChartBars.StartTime,ChartBars.Open,ChartBars.Close,ChartBars.Volume`;
   const endpoint = `${baseUrl}/${params}`;
   const data = await fetch(endpoint, {
     headers: {
