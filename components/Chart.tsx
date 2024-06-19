@@ -27,7 +27,7 @@ function Chart({ data, ticker }: IProps) {
             <stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
           </linearGradient>
         </defs>
-        <XAxis dataKey="name" interval={interval} />
+        <XAxis dataKey="name" interval={interval} tickMargin={10}/>
         <YAxis
           type="number"
           domain={["dataMin", "dataMax"]}
